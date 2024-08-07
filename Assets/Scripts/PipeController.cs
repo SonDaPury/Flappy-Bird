@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PipeController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField]
+    private float speed;
 
     void Update()
     {

@@ -10,27 +10,36 @@ public class SpawnPipe : MonoBehaviour
     public Vector3 positionSpawn;
     public float height;
     public List<GameObject> pipes;
+    private ReadyScreen readyScreen;
 
     void Start()
     {
         positionSpawn = transform.position;
         timer = maxTime;
+        readyScreen = FindFirstObjectByType<ReadyScreen>();
     }
 
     void Update()
     {
-        if (timer > maxTime)
+        if (readyScreen.isGameStart == false)
         {
-            float randomDistance = Random.Range(1, 4);
-            float randomHeight = Random.Range(-height, height);
-
-            positionSpawn = new Vector3(randomDistance + transform.position.x, randomHeight + transform.position.y, 0);
-            GameObject tmp = Instantiate(pipePrefab, positionSpawn,
-                Quaternion.identity);
-
-            Destroy(tmp, 10);
-            timer = 0;
+            return;
         }
-        timer += Time.deltaTime;
+        else
+        {
+            if (timer > maxTime)
+            {
+                float randomDistance = Random.Range(1, 4);
+                float randomHeight = Random.Range(-height, height);
+
+                positionSpawn = new Vector3(randomDistance + transform.position.x, randomHeight + transform.position.y, 0);
+                GameObject tmp = Instantiate(pipePrefab, positionSpawn,
+                    Quaternion.identity);
+
+                Destroy(tmp, 10);
+                timer = 0;
+            }
+            timer += Time.deltaTime;
+        }
     }
 }

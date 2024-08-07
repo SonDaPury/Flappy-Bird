@@ -322,7 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
-  pointSound: {fileID: 0}
+  readyScreen: {fileID: 0}
+  pointSoundPrefab: {fileID: 7097464716511056425, guid: ef45e154fd821254a9547bbdc1844586, type: 3}
+  pointAudio: {fileID: 0}
 --- !u!1 &8546952567861180327
 GameObject:
   m_ObjectHideFlags: 0

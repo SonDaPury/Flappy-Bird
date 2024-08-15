@@ -77,10 +77,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            rg.isKinematic = false;
+            animator.enabled = true;
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                animator.enabled = true;
-                rg.isKinematic = false;
                 rg.AddForce(Vector2.up * speedWhenSpace);
                 targetRotation = Quaternion.Euler(0, 0, degreesPerSecond);
 
